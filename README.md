@@ -1,7 +1,5 @@
-
-
 Arduino based remote control for toy car
-----------------------------------------
+========================================
 
 In this project our aim is to build a web remote control interface for a toy car using an arduino board.
 
@@ -19,4 +17,5 @@ Resources
 * [Arduino Duemilanove](http://www.arduino.cc/en/Main/ArduinoBoardDuemilanove)
 * [Serial to Socket Server](http://github.com/andreisavu/serial-server)
 * [Web.py framework](http://webpy.org/)
+* [Git developing with submodules](http://github.com/guides/developing-with-submodules)
 
