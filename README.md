@@ -6,9 +6,10 @@ In this project our aim is to build a web remote control interface for a toy car
 Folder structure
 ----------------
 
+
 * _docs/_ - contains specs and arduino related docs
 * _sketches/_ - contains sketches for the arduino board
-
+* _serial-server/_ - serial to socket java server
 
 Resources
 ---------
