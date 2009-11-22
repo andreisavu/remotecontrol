@@ -1,0 +1,3 @@
+[submodule "serial-server"]
+	path = serial-server
+	url = git://github.com/andreisavu/serial-server.git
