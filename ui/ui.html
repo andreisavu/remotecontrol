@@ -1,0 +1,143 @@
+<html>
+<head>
+<style type="text/css">
+
+#body {
+    width: 300px;
+    height: 200px;
+    position: relative;
+}
+
+#left {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 40px;
+    height: 180px;
+    border: 1px solid blue;
+}
+
+#right {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 180px;
+    border: 1px solid blue;
+}
+
+#spin {
+    position: absolute;
+    top: 70px;
+    left: 75px;
+    width: 150px;
+    height: 60px;
+    background-image: url(spin-arrows.gif);
+}
+
+#left .up,
+#right .up {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+#left .down,
+#right .down {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+}
+
+#body, #left, #right, #log {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+</style>
+<script type="application/javascript">
+
+function init() {
+    function keyval(n) {
+        if (n == null) return 'undefined';
+        var s= '' + n;
+        if (n >= 32 && n < 127) s+= ' (' + String.fromCharCode(n) + ')';
+        while (s.length < 9) s+= ' ';
+        return s;
+    }
+
+    function showmesg(t) {
+       var el = document.getElementById("log");
+       var old= el.value;
+       el.value= old + t + '\n';
+    }
+
+    function pressmesg(w,e) {
+       showmesg(w + '  keyCode=' + keyval(e.keyCode) +
+                     ' which=' + keyval(e.which) +
+                     ' charCode=' + keyval(e.charCode));
+       showmesg(' shiftKey='+e.shiftKey
+              + ' ctrlKey='+e.ctrlKey
+              + ' altKey='+e.altKey
+              + ' metaKey='+e.metaKey);
+    }
+
+    function suppressdefault(e,flag) {
+       if (flag) {
+           if (e.preventDefault) e.preventDefault();
+           if (e.stopPropagation) e.stopPropagation();
+       }
+       return !flag;
+    }
+
+    function keypress(e) {
+       if (!e) e= event;
+       pressmesg('keypress',e);
+       return suppressdefault(e, true);
+    }
+
+    if(document.addEventListener) {
+        document.addEventListener("keypress", keypress, false);
+    } else if(document.attachEvent) {
+        document.attachEvent("onkeypress", keypress);
+    } else {
+        document.onkeypress = keypress;
+    }
+}
+
+</script>
+</head>
+<body>
+
+<h1>Robot remote control</h1>
+<hr />
+
+<table>
+<tr><td>
+
+<div id="body">
+    <div id="left">
+        <img class="up" src="up.png" width="30" />
+        <img class="down" src="down.png" width="30" />
+    </div>
+    <div id="spin"></div>
+    <div id="right">
+        <img class="up" src="up.png" width="30" />
+        <img class="down" src="down.png" width="30" />
+    </div>    
+</div>
+
+<br />
+<textarea id="log" rows="10" cols="65">
+Robot interaction log messages ...
+</textarea>
+
+</td><td valign="top">
+<h3>Live - stream</h3>
+
+</td></tr>
+</table>
+
+<script type="application/javascript">init();</script>
+</body>
+</html>
