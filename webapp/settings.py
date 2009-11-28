@@ -1,0 +1,4 @@
+
+SERIAL_HOST = 'localhost'
+SERIAL_TCP_PORT = 9000
+
