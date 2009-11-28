@@ -1,5 +1,5 @@
-Arduino based remote control for toy car
-========================================
+Arduino based remote control
+============================
 
 In this project our aim is to build a web remote control interface for a toy car using an arduino board.
 
@@ -10,6 +10,13 @@ Folder structure
 * _docs/_ - contains specs and arduino related docs
 * _sketches/_ - contains sketches for the arduino board
 * _serial-server/_ - serial to socket java server
+
+Authors
+-------
+
+* Copaci Dorin : hardware related issues.
+
+* [Andrei Savu](http://www.andreisavu.ro) : software related issues.
 
 Resources
 ---------
