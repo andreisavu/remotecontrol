@@ -3,9 +3,16 @@ Arduino based remote control
 
 In this project our aim is to build a web remote control interface for a toy car using an arduino board.
 
+Pictures
+--------
+
+![Toy](http://cloud.github.com/downloads/andreisavu/remotecontrol/small-toy.jpg)
+
+![Remote with attached arduino board](http://cloud.github.com/downloads/andreisavu/remotecontrol/small-arduino-remote.jpg)
+
+
 Folder structure
 ----------------
-
 
 * _docs/_ - contains specs and arduino related docs
 * _sketches/_ - contains sketches for the arduino board
@@ -15,7 +22,6 @@ Authors
 -------
 
 * Copaci Dorin : hardware related issues.
-
 * [Andrei Savu](http://www.andreisavu.ro) : software related issues.
 
 Resources
