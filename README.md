@@ -1,7 +1,7 @@
 Arduino based remote control
 ============================
 
-In this project our aim is to build a web remote control interface for a toy car using an arduino board.
+In this project our aim is to build a web remote control interface for a toy car using an arduino board. The web application allows exclusive access to only one user at a given time. Bellow you can see some pictures. 
 
 Pictures
 --------
@@ -21,8 +21,8 @@ Folder structure
 Authors
 -------
 
-* Copaci Dorin : hardware related issues.
-* [Andrei Savu](http://www.andreisavu.ro) : software related issues.
+* Copaci Dorin : hardware 
+* [Andrei Savu](http://www.andreisavu.ro) : software 
 
 Resources
 ---------
