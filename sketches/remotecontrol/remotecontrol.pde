@@ -1,28 +1,15 @@
-/**
- * Remote control kernel
- * 
- */
-
-/* 
- Define directions represented by buttons
- */
-#define LEFT_FORWARD 2
-#define LEFT_BACKWARD 3
-
-#define RIGHT_FORWARD 4
-#define RIGHT_BACKWARD 5
 
 /*
  * The amount of time the button will remain in the press state
  */
-#define PRESS_INTERVAL 1000
+#define PRESS_INTERVAL 500
 
 struct button_t { 
   int pin, state;
-  int last_change;
+  long last_change;
 };
 
-struct button_t buttons[7];
+struct button_t buttons[9];
 int command = 0;
 
 void init_button(struct button_t *b, int pin, int mode = OUTPUT) {
@@ -33,7 +20,7 @@ void init_button(struct button_t *b, int pin, int mode = OUTPUT) {
 }
 
 void setup_all_buttons() {
-  for(int i=2; i<7; i++) {
+  for(int i=2; i<9; i++) {
    init_button(&buttons[i], i); 
   }
 }
@@ -61,39 +48,25 @@ void refresh_all_buttons() {
   } 
 }
 
+/**
+ * Board initilization procedure
+ */
 void setup() {
  setup_all_buttons();
  Serial.begin(9600);
- Serial.println("waiting for commands ...");
 }
 
+/**
+ * Main application loop: Read command and press button
+ */
 void loop() {
   if(Serial.available() > 0) {
    command = Serial.read();
-   process_command(command);
+   if(command >= '2' && command < '9') {
+     Serial.println(command-'0', DEC);
+     press_button(command - '0'); 
+   }
   }
   refresh_all_buttons();
 }
 
-void process_command(int command) {
-    switch(command) {
-     case 'q':
-      press_button(LEFT_FORWARD);
-      Serial.println("moving left forward");
-      break;
-     case 'a':
-      press_button(LEFT_BACKWARD);
-      Serial.println("moving left backward");
-      break;
-     case 'w':
-      press_button(RIGHT_FORWARD);
-      Serial.println("moving right forward");
-      break;
-     case 's':
-      press_button(RIGHT_BACKWARD);
-      Serial.println("moving right backward");
-      break;
-     default:
-      Serial.println("Undefined command");
-   }  
-}
