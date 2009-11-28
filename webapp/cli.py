@@ -20,24 +20,10 @@ def main():
             ch = getchar()
             if time() - last_command_time > 0.3:
                 last_command_time = time()
-                handle_command(remote, ch)
+                remote.key_command(ch)
         except KeyboardInterrupt:
             break
     remote.close()
-
-def handle_command(remote, ch):
-    keys = {
-        '9': remote.right_forward,
-        '8': remote.forward,
-        '7': remote.left_forward,
-        '6': remote.rotate_right,
-        '4': remote.rotate_left,
-        '3': remote.right_backward,
-        '2': remote.backward,
-        '1': remote.left_backward
-    }
-    if ch in keys:
-        keys[ch]()
 
 def getchar():
     """ Works like C getchar()
