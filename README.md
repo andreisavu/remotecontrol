@@ -10,13 +10,17 @@ Pictures
 
 ![Remote with attached arduino board](http://cloud.github.com/downloads/andreisavu/remotecontrol/small-arduino-remote.jpg)
 
+Basic schematics
+----------------
+
+![Basic schematics](http://cloud.github.com/downloads/andreisavu/remotecontrol/basic-schematics.png)
 
 Folder structure
 ----------------
 
-* _docs/_ - contains specs and arduino related docs
-* _sketches/_ - contains sketches for the arduino board
-* _serial-server/_ - serial to socket java server
+* _docs_ - contains specs and arduino related docs
+* _sketches_ - contains sketches for the arduino board
+* _serial-server_ - serial to socket java server
 
 Authors
 -------
