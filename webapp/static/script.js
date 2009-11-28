@@ -18,10 +18,13 @@ function init() {
        showmesg(w + '  keyCode=' + keyval(e.keyCode) +
                      ' which=' + keyval(e.which) +
                      ' charCode=' + keyval(e.charCode));
+        $.get('/command/' + String.fromCharCode(e.keyCode));
+        /*
        showmesg(' shiftKey='+e.shiftKey
               + ' ctrlKey='+e.ctrlKey
               + ' altKey='+e.altKey
               + ' metaKey='+e.metaKey);
+        */
     }
 
     function suppressdefault(e,flag) {
