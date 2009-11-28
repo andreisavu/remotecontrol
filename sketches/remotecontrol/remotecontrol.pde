@@ -2,7 +2,7 @@
 /*
  * The amount of time the button will remain in the press state
  */
-#define PRESS_INTERVAL 500
+#define PRESS_INTERVAL 350
 
 struct button_t { 
   int pin, state;
