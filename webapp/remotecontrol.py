@@ -3,21 +3,22 @@ import socket
 
 class RemoteControl(object):
     
-    def __init__(self, host, port):
+    def __init__(self, host='localhost', port=9000):
         self.sock = socket.socket()
         self.sock.connect((host, port))
 
     def key_command(self, ch):
         " Default command handler "
         keys = {
-            '9': self.right_forward,
-            '8': self.forward,
-            '7': self.left_forward,
-            '6': self.rotate_right,
-            '4': self.rotate_left,
-            '3': self.right_backward,
-            '2': self.backward,
-            '1': self.left_backward
+            'o': self.right_forward,
+            'w': self.forward,
+            'i': self.left_forward,
+            'd': self.rotate_right,
+            'a': self.rotate_left,
+            'l': self.right_backward,
+            's': self.backward,
+            'k': self.left_backward,
+            ' ': self.take,
         }
         if ch in keys:
             keys[ch]()
@@ -45,6 +46,15 @@ class RemoteControl(object):
 
     def right_backward(self):
         self.sock.send('6')
+
+    def take(self):
+        self.sock.send('2')
+
+    def body_left(self):
+        self.sock.send('7')
+
+    def body_right(self):
+        self.sock.send('8')
 
     def close(self):
         self.sock.close()

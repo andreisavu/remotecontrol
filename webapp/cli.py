@@ -13,7 +13,9 @@ def main():
     print 'Starting cli interface. Connecting to serial server.'
     remote = RemoteControl(settings.SERIAL_HOST, settings.SERIAL_TCP_PORT)
 
-    print 'Waiting for commads. Use the numpad on your keyboard.'
+    print 'Waiting for commads.'
+    print '- A W S D basic body movement '
+    print '- I/K O/L left and right foward and backward'
     last_command_time = 0
     while True:
         try:
